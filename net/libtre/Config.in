@@ -1,0 +1,3 @@
+config	libtre
+	prompt "libtre.......................... Approximate regex matching library and agrep command line tool"
+	tristate

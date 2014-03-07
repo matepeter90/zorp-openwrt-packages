@@ -1,0 +1,60 @@
+Index: zorp/zorp/policy.py.sample
+===================================================================
+--- zorp.orig/zorp/policy.py.sample
++++ zorp/zorp/policy.py.sample
+@@ -107,9 +107,9 @@ def zorp_http():
+ 	Service("intra_http", IntraHttp)
+ 	Service("intra_ftp", IntraFtp)
+ 
+-	Rule(src_zone="site-net", dst_zone="internet", src_port=80, service="intra_http")
+-	Rule(src_zone="site-net", src_port=21, service="intra_ftp")
+-	Rule(src_zone="local", iface="eth0", dst_port=21, service="intra_ftp")
++	Rule(src_zone="site-net", dst_zone="internet", dst_port=80, service="intra_http")
++	#Rule(src_zone="site-net", src_port=21, service="intra_ftp")
++	#Rule(src_zone="local", iface="eth0", dst_port=21, service="intra_ftp")
+ 
+ # zorp_plug instance
+ def zorp_plug():
+Index: zorp/zorpctl/instances.conf.sample
+===================================================================
+--- zorp.orig/zorpctl/instances.conf.sample
++++ zorp/zorpctl/instances.conf.sample
+@@ -11,5 +11,5 @@
+ # of tabs! Otherwise zorpctl will stop working.
+ 
+ #instance  arguments
+-#zorp_http --verbose=5 --policy /etc/zorp/policy-http.py
+-#zorp_plug --policy /etc/zorp/policy-plug.py
++#zorp_http --verbose=5 --policy /etc/zorp/policy-http.py --user root --group root
++#zorp_plug --policy /etc/zorp/policy-plug.py --user root --group root
+Index: zorp/zorpctl/zorpctl.conf.sample
+===================================================================
+--- zorp.orig/zorpctl/zorpctl.conf.sample
++++ zorp/zorpctl/zorpctl.conf.sample
+@@ -27,19 +27,19 @@ ZORPCTL_APPEND_ARGS=""
+ 
+ # whether to check /etc/zorp permissions
+ CHECK_PERMS="1"
+-#CONFIG_DIR=/etc/zorp
+-#CONFIG_DIR_OWNER=root
+-#CONFIG_DIR_GROUP=zorp
+-#CONFIG_DIR_MODE=0750
++CONFIG_DIR=/etc/zorp
++CONFIG_DIR_OWNER=root
++CONFIG_DIR_GROUP=root
++CONFIG_DIR_MODE=0755
+ 
+ # directory where Zorp stores its pidfiles
+-#PIDFILE_DIR=/var/run/zorp
++PIDFILE_DIR=/var/run
+ 
+ # set pidfile directory ownership according to the settings below (umask is
+ # applied). 
+ # DO not modify this, unless you know what you are doing.
+-PIDFILE_DIR_OWNER=zorp
+-PIDFILE_DIR_GROUP=zorp
++PIDFILE_DIR_OWNER=root
++PIDFILE_DIR_GROUP=root
+ PIDFILE_DIR_MODE=0770
+ 
+ # Deprecated options, these options should not be used anymore and trigger a

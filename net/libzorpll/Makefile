@@ -13,7 +13,7 @@ PKG_SOURCE_VERSION:=52234466db9f685d1631fa93a6d81dbd0011ca88
 PKG_SOURCE_PROTO:=git
 
 PKG_INSTALL:=1
-PKG_BUILD_DEPENDS:= +libopenssl +libiconv-full
+PKG_BUILD_DEPENDS:= +libopenssl +libiconv-full +libstdcpp
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
@@ -21,7 +21,7 @@ include $(INCLUDE_DIR)/nls.mk
 define Package/libzorpll
 	CATEGORY:=Libraries
 	TITLE:=libzorpll
-    DEPENDS:= +glib2 +libopenssl +zlib
+    DEPENDS:= +glib2 +libopenssl +zlib +libstdcpp
 endef
 
 define Build/Configure
@@ -39,4 +39,4 @@ define Package/libzorpll/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/* $(1)/usr/
 endef
 
-$(eval $(call BuildPackage,libzorpll,+glib2,+libopenssl,+zlib))
+$(eval $(call BuildPackage,libzorpll,+glib2,+libopenssl,+zlib,+libstdcpp))

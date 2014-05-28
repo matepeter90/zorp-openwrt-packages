@@ -4,12 +4,12 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=libzorpll
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
-PKG_VERSION:=3.9.3.1
+PKG_VERSION:=3.9.4.1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/balabit/libzorpll.git
 PKG_SOURCE_SUBDIR:=libzorpll
-PKG_SOURCE_VERSION:=3.9.3.1
+PKG_SOURCE_VERSION:=dcde6b9ac3314ff282975efd05aec53d94a8bccf
 PKG_SOURCE_PROTO:=git
 
 PKG_INSTALL:=1

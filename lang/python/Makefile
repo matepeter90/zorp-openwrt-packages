@@ -186,6 +186,7 @@ define Build/InstallDev
 	$(CP) \
 		$(STAGING_DIR_HOST)/bin/python$(PYTHON_VERSION) \
 		$(1)/usr/bin/hostpython
+	$(CP) $(STAGING_DIR_HOST)/lib/pkgconfig/python*.pc $(STAGING_DIR)/usr/lib/pkgconfig
 	(cd $(2)/bin; \
 	ln -sf ../../usr/bin/hostpython python$(PYTHON_VERSION); \
 	ln -sf python$(PYTHON_VERSION) python)

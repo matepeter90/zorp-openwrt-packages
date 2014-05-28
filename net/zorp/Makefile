@@ -18,13 +18,15 @@ PKG_INSTALL:=1
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include/zorp -std=c99 -fPIC
 TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib -pthread -lz
 
+PKG_BUILD_DEPENDS:= +python +glib2 +libopenssl +libpthread +libzorpll +libtre +kmod-kzorp +zorp-addons +kzorp-addons +python-radix +pyopenssl +pydns +iptables-mod-tproxy +iptables-mod-ipopt +iptables-mod-conntrack-extra
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
 
 define Package/zorp
 	CATEGORY:=Network
 	TITLE:=zorp
-	DEPENDS:= +glib2 +libopenssl +libpthread +libzorpll +libtre +kmod-kzorp +zorp-addons +kzorp-addons +python-radix +pyopenssl +pydns +iptables-mod-tproxy +iptables-mod-ipopt +iptables-mod-conntrack-extra
+	DEPENDS:= +python +glib2 +libopenssl +libpthread +libzorpll +libtre +kmod-kzorp +zorp-addons +kzorp-addons +python-radix +pyopenssl +pydns +iptables-mod-tproxy +iptables-mod-ipopt +iptables-mod-conntrack-extra
 endef
 
 define Build/Configure

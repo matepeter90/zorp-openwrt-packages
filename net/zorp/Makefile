@@ -2,13 +2,13 @@ include $(TOPDIR)/rules.mk
 
 # Name and release number of this package
 PKG_NAME:=zorp
-PKG_VERSION:=3.9.7
+PKG_VERSION:=5.0.0
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/matepeter90/zorp.git
+PKG_SOURCE_URL:=https://github.com/balabit/zorp.git
 PKG_SOURCE_SUBDIR:=zorp
-PKG_SOURCE_VERSION:=104c72a76276bf71fc7aecbb70c6ce1dbff6f06e
+PKG_SOURCE_VERSION:=2af6ad1035fc8b7307072d081a6da263ae0e91bc
 PKG_SOURCE_PROTO:=git
 
 #PKG_LICENSE:=LGPLv2.1 GPLv2
